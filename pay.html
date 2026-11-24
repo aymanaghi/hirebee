@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pay for HireBee</title>
+<meta name="description" content="Pay for HireBee Pro or Ultra Max with Whish, USDT on TON or Telegram Stars.">
+<meta name="robots" content="noindex">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="theme-color" content="#15171C">
+<meta property="og:image" content="https://aymanaghi.github.io/hirebee/og-share.png">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top"><div class="wrap">
+  <a class="brand" href="index.html"><img src="favicon.svg" alt="">HireBee</a>
+  <nav class="links" aria-label="Main"><a href="index.html#pricing">Pricing</a><a class="btn ink small" data-bot="" href="#">Open<span class="long">&nbsp;in Telegram</span></a></nav>
+</div></header>
+
+<main id="main" class="paybox">
+  <div><h1 style="font-size:clamp(28px,4.4vw,38px);margin:0 0 6px">Pay for HireBee</h1>
+  <p class="muted" style="margin:0;color:var(--muted)"><span data-days>30</span> days of your plan. No auto-renewal.</p></div>
+
+  <div class="seg" role="group" aria-label="Plan">
+    <button type="button" data-plan="pro">Pro · <span data-price="pro">$9</span></button>
+    <button type="button" data-plan="ultra">⚡ Ultra Max · <span data-price="ultra">$25</span></button>
+  </div>
+
+  <div id="nocode" class="alert blue" hidden>
+    To pay here, open <b>HireBee in Telegram → 💎 Plans → "Pay on the website"</b>. That link adds your personal order code, so your payment reaches your account.
+    <div style="margin-top:10px"><a class="btn ink small" data-bot="" href="#">Open HireBee</a></div>
+  </div>
+
+  <div id="order" class="field" hidden><span class="lbl">Order</span><code id="order-code"></code><button class="copy" data-copy="order-code">Copy</button></div>
+
+  <div class="method" data-if="tonAddress" id="m-ton">
+    <h3>USDT on TON (Keeper wallet) <span class="badge">Automatic</span></h3>
+    <p style="margin:0;color:var(--soft)">Your plan turns on by itself a few minutes after the payment arrives.</p>
+    <a class="btn yellow" id="ton-open" href="#">Open in Keeper</a>
+    <details style="background:var(--bg)"><summary>Pay manually from another TON wallet</summary>
+      <div class="field"><span class="lbl">Send</span><code id="ton-amount"></code></div>
+      <div class="field"><span class="lbl">To</span><code id="ton-address"></code><button class="copy" data-copy="ton-address">Copy</button></div>
+      <div class="field"><span class="lbl">Comment</span><code id="ton-comment"></code><button class="copy" data-copy="ton-comment">Copy</button></div>
+      <p style="margin:10px 0 14px;font-size:14px">Send <b>USDT on the TON network only</b>, and paste the comment exactly. Without the comment, we can't tell who paid.</p>
+    </details>
+  </div>
+
+  <div class="method" data-if="whishLink" id="m-whish">
+    <h3>Whish <span class="badge manual">Checked by hand</span></h3>
+    <ol class="steps">
+      <li>Tap "Pay with Whish" and pay exactly <b id="whish-amount"></b>. If there's a note field, write your order code.</li>
+      <li>Take a screenshot of the Whish receipt.</li>
+      <li>Tap "Send my receipt to the bot" and send the screenshot. Your plan turns on once it's checked, usually within a few hours.</li>
+    </ol>
+    <a class="btn ink" id="whish-open" href="#" target="_blank" rel="noopener">Pay with Whish</a>
+    <a class="btn line" id="whish-receipt" href="#">Send my receipt to the bot</a>
+  </div>
+
+  <div class="method" id="m-stars">
+    <h3>Telegram Stars <span class="badge">Automatic</span></h3>
+    <p style="margin:0;color:var(--soft)">Pay inside Telegram. Your plan turns on immediately.</p>
+    <a class="btn line" id="stars-open" href="#">Pay <span id="stars-n"></span> ⭐ in Telegram</a>
+  </div>
+
+  <p style="font-size:14px;color:var(--muted);margin:4px 0 0">By paying you agree to the <a href="terms.html">terms</a> and <a href="refunds.html">refund policy</a>. Questions? <a data-email href="#"></a></p>
+</main>
+
+<footer><div class="wrap">
+  <div>© <span data-year>2026</span> HireBee · operated by <span data-owner></span>, Lebanon</div>
+  <nav aria-label="Legal"><a href="terms.html">Terms</a><a href="privacy.html">Privacy</a><a href="refunds.html">Refunds</a><a href="contact.html">Contact</a></nav>
+</div></footer>
+<script src="config.js"></script>
+<script>
+(function () {
+  var C = window.HIREBEE, q = new URLSearchParams(location.search);
+  var code = (q.get('code') || '').trim();
+  if (!/^\d{3,15}-[0-9a-f]{8}$/.test(code)) code = '';
+  var plan = q.get('plan') === 'ultra' ? 'ultra' : 'pro';
+  var orderText = code ? 'HB-' + code : '';
+  function set(id, v) { var el = document.getElementById(id); if (el) el.textContent = v; }
+  function render() {
+    document.querySelectorAll('.seg button').forEach(function (b) { b.setAttribute('aria-pressed', b.dataset.plan === plan); });
+    var usd = C.prices[plan];
+    document.getElementById('nocode').hidden = !!code;
+    document.getElementById('order').hidden = !code;
+    set('order-code', orderText);
+    // Pay buttons need the order code (except to open the bot)
+    ['ton-open', 'whish-open', 'whish-receipt'].forEach(function (id) {
+      var el = document.getElementById(id); if (el) el.setAttribute('aria-disabled', code ? 'false' : 'true');
+    });
+    if (C.tonAddress && document.getElementById('ton-open')) {
+      var units = String(Math.round(usd * 1e6));  // USDT has 6 decimals
+      var link = 'ton://transfer/' + C.tonAddress + '?jetton=' + C.usdtTonMaster + '&amount=' + units + '&text=' + encodeURIComponent(orderText);
+      document.getElementById('ton-open').href = link;
+      set('ton-amount', usd + ' USDT (TON network)');
+      set('ton-address', C.tonAddress);
+      set('ton-comment', orderText || '(open this page from the bot)');
+    }
+    if (document.getElementById('whish-open')) {
+      set('whish-amount', '$' + usd);
+      document.getElementById('whish-open').href = C.whishLink;
+    }
+    var bot = (C.botUsername || '').replace(/^@/, '');
+    var receipt = document.getElementById('whish-receipt');
+    if (receipt && bot && code) receipt.href = 'https://t.me/' + bot + '?start=rc_' + plan + '_' + code;
+    var stars = document.getElementById('stars-open');
+    if (stars) { if (bot) stars.href = 'https://t.me/' + bot + '?start=pay_' + plan; else stars.setAttribute('aria-disabled', 'true'); }
+    if (receipt && !bot) receipt.setAttribute('aria-disabled', 'true');
+    set('stars-n', C.stars[plan]);
+  }
+  document.querySelectorAll('.seg button').forEach(function (b) { b.addEventListener('click', function () { plan = b.dataset.plan; render(); }); });
+  document.addEventListener('click', function (e) {
+    var b = e.target.closest('[data-copy]'); if (!b) return;
+    var text = document.getElementById(b.dataset.copy).textContent;
+    (navigator.clipboard ? navigator.clipboard.writeText(text) : Promise.reject()).then(function () {
+      b.textContent = 'Copied'; setTimeout(function () { b.textContent = 'Copy'; }, 1500);
+    }).catch(function () { b.textContent = 'Select & copy'; });
+  });
+  render();
+})();
+</script>
+<script src="site.js"></script>
+</body>
+</html>

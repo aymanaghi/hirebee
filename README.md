@@ -131,6 +131,8 @@ hirebee/
 ├── favicon-32.png
 ├── apple-touch-icon.png
 ├── og-share.png
+├── wallet-logo.png     Google Wallet pass images (logo and banner)
+├── wallet-hero.png
 └── assets/readme/      Images used in this README
 ```
 

@@ -42,7 +42,7 @@ Most job tools ignore Lebanon. HireBee starts from it.
 | | |
 | :-- | :-- |
 | ✍️&nbsp;&nbsp;**A tailored CV for every job** | Your CV and cover letter rewritten for each job from your real experience. Nothing is invented. |
-| 🌍&nbsp;&nbsp;**Remote jobs open to Lebanon** | Dollar-paying remote jobs from four major remote job boards, with jobs that exclude Lebanon filtered out. |
+| 🌍&nbsp;&nbsp;**Remote jobs open to Lebanon** | Dollar-paying remote jobs in every field from five remote job boards, with jobs that exclude Lebanon filtered out. |
 | 🇱🇧&nbsp;&nbsp;**Jobs inside Lebanon** | NGO and UN jobs in Lebanon from ReliefWeb, plus the career pages of companies you choose to follow. |
 | ⚡&nbsp;&nbsp;**Be first to apply** | Ultra Max watches up to 50 company career pages and alerts you within 30 minutes of a new job. |
 | 📋&nbsp;&nbsp;**Track every application** | Applied, replied, interview, offer: see where everything stands and follow up on time. |
@@ -84,9 +84,9 @@ Not happy? You get a full refund within 7 days of paying, as long as you've tail
 
 ## Where the jobs come from
 
-- **Remote jobs:** RemoteOK, Remotive, Himalayas and We Work Remotely, keeping only jobs open to people in Lebanon.
-- **Jobs in Lebanon:** NGO and UN jobs from ReliefWeb.
-- **Live jobs (Ultra Max):** the career pages of companies you follow, on Greenhouse, Lever and Ashby.
+- **Remote jobs:** RemoteOK, Remotive, Himalayas, We Work Remotely and Jobicy, in every field, keeping only jobs open to people in Lebanon.
+- **Jobs in Lebanon:** NGO and UN jobs from ReliefWeb, company careers pages, and Lebanese job channels on Telegram that agreed to share their posts.
+- **Live jobs (Ultra Max):** the career pages of companies you follow, on Greenhouse, Lever, Ashby, Workable and SmartRecruiters.
 
 HireBee doesn't copy jobs from LinkedIn or Bayt, and it never applies or sends anything in your name: you choose where to apply.
 

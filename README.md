@@ -84,12 +84,15 @@ Not happy? You get a full refund within 7 days of paying, as long as you've tail
 
 ## Browse jobs
 
-The [Jobs page](https://aymanaghi.github.io/hirebee/jobs.html) lists jobs open to people in Lebanon, updated after every scan: search, filter by In Lebanon, Remote or field, and tap **Tailor my CV** to open HireBee on that job. Every job links to its original posting and names its source.
+The [Jobs page](https://aymanaghi.github.io/hirebee/jobs.html) lists jobs open to people in Lebanon, updated after every scan: search, filter by Lebanon, Remote, Gulf or field, and tap **Tailor my CV** to open HireBee on that job. Every job links to its original posting and names its source.
+
+**Hiring?** Employers post jobs for free: open [@HireBeee_bot](https://t.me/HireBeee_bot?start=post) and follow the steps. Every post is checked before it goes up.
 
 ## Where the jobs come from
 
-- **Remote jobs:** RemoteOK, Remotive, Himalayas, We Work Remotely and Jobicy, in every field, keeping only jobs open to people in Lebanon.
-- **Jobs in Lebanon:** NGO and UN jobs from ReliefWeb, company careers pages, and Lebanese job channels on Telegram that agreed to share their posts.
+- **Remote jobs:** RemoteOK, Remotive, Himalayas, We Work Remotely, Jobicy, Working Nomads and Arbeitnow, in every field, keeping only jobs open to people in Lebanon.
+- **Jobs in Lebanon:** NGO and UN jobs from ReliefWeb, company careers pages, jobs Lebanese employers post on HireBee, and Lebanese job channels on Telegram that agreed to share their posts.
+- **Jobs in the Gulf:** on-site jobs in the UAE, Saudi Arabia and the rest of the GCC from company careers pages, for people open to relocating.
 - **Live jobs (Ultra Max):** the career pages of companies you follow, on Greenhouse, Lever, Ashby, Workable and SmartRecruiters.
 
 HireBee doesn't copy jobs from LinkedIn or Bayt, and it never applies or sends anything in your name: you choose where to apply.

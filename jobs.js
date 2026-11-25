@@ -22,7 +22,8 @@
 
   function card(j) {
     var url = safeUrl(j.u), tailor = tailorUrl(j);
-    var where = j.lb ? '<span class="pill b">In Lebanon</span>' : (j.r || /remote|anywhere|worldwide/i.test(j.l) ? '<span class="pill g">Remote · open to Lebanon</span>' : '');
+    var where = j.lb ? '<span class="pill b">In Lebanon</span>' : j.g ? '<span class="pill p">Gulf · relocation</span>' :
+      (j.r || /remote|anywhere|worldwide/i.test(j.l) ? '<span class="pill g">Remote · open to Lebanon</span>' : '');
     var fresh = (Date.now() / 1000 - j.d) < 86400 ? '<span class="pill">New</span>' : '';
     var title = url ? '<a href="' + esc(url) + '" target="_blank" rel="noopener">' + esc(j.t) + '</a>' : esc(j.t);
     return '<li class="job">' +
@@ -67,13 +68,14 @@
   var $ = function (id) { return document.getElementById(id); };
   var params = new URLSearchParams(location.search);
   state.q = params.get('q') || '';
-  state.where = ['lb', 'remote'].indexOf(params.get('where')) >= 0 ? params.get('where') : 'all';
+  state.where = ['lb', 'remote', 'gulf'].indexOf(params.get('where')) >= 0 ? params.get('where') : 'all';
   state.field = params.get('field') || '';
   $('q').value = state.q;
 
   function matches(j) {
     if (state.where === 'lb' && !j.lb) return false;
-    if (state.where === 'remote' && j.lb) return false;
+    if (state.where === 'remote' && (j.lb || j.g)) return false;
+    if (state.where === 'gulf' && !j.g) return false;
     if (state.field && j.f !== state.field) return false;
     if (state.q) {
       var hay = (j.t + ' ' + j.c + ' ' + j.l + ' ' + j.f).toLowerCase();
@@ -125,8 +127,11 @@
       });
     if (state.field && !fields[state.field]) state.field = '';
     sel.value = state.field;
-    $('jobs-summary').innerHTML = '<b>' + (feed.count || 0).toLocaleString('en') + '</b> open jobs, <b>' +
-      (feed.in_lebanon || 0).toLocaleString('en') + '</b> of them in Lebanon. Updated ' + ago(feed.updated) + '.';
+    $('jobs-summary').innerHTML = '<b>' + (feed.count || 0).toLocaleString('en') + '</b> open jobs: <b>' +
+      (feed.in_lebanon || 0).toLocaleString('en') + '</b> in Lebanon' +
+      (feed.in_gulf ? ', <b>' + feed.in_gulf.toLocaleString('en') + '</b> in the Gulf' : '') +
+      ', the rest remote. Updated ' + ago(feed.updated) + '.';
+    if (!feed.in_gulf) { var gb = document.querySelector('.seg [data-where="gulf"]'); if (gb) gb.hidden = true; }
     var src = Object.keys(feed.sources || {});
     if (src.length) {
       $('attribution').textContent = 'Jobs on this page come from ' + src.join(', ') +

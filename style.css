@@ -193,3 +193,6 @@ nav.links a[aria-current="page"] { color: var(--text); font-weight: 800; text-de
 .latest-head h2 { margin: 0; }
 .latest-head .sub { margin: 6px 0 0; }
 @media (max-width: 600px) { .jobs-tools { position: static; } }
+.pill.p { background: #F1EAFE; color: #5B21B6; }
+@media (max-width: 600px) { .seg button { padding: 0 8px; font-size: 13px; } }
+.seg button { white-space: nowrap; }

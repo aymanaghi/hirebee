@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jobs you can apply to from Lebanon · HireBee</title>
+<meta name="description" content="Remote jobs open to people in Lebanon and jobs inside Lebanon, updated every few hours. Tailor your CV to any of them in one tap.">
+<meta property="og:title" content="Jobs you can apply to from Lebanon · HireBee">
+<meta property="og:description" content="Remote jobs open to Lebanon and jobs in Lebanon, updated every few hours.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="theme-color" content="#15171C">
+<meta property="og:image" content="https://aymanaghi.github.io/hirebee/og-share.png">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top"><div class="wrap">
+  <a class="brand" href="index.html"><img src="favicon.svg" alt="">HireBee</a>
+  <nav class="links" aria-label="Main">
+    <a href="jobs.html" aria-current="page">Jobs</a>
+    <a href="index.html#pricing" class="hide-sm">Pricing</a>
+    <a class="btn ink small" data-bot="" href="#">Open<span class="long">&nbsp;in Telegram</span></a>
+  </nav>
+</div></header>
+
+<main id="main">
+<div class="jobs-head"><div class="wrap">
+  <span class="eyebrow">🇱🇧 Updated every few hours</span>
+  <h1>Jobs you can apply to <em>from Lebanon.</em></h1>
+  <p class="lead" id="jobs-summary">Loading jobs…</p>
+</div></div>
+
+<div class="wrap jobs-layout">
+  <div class="jobs-main">
+    <form class="jobs-tools" role="search" onsubmit="return false">
+      <label class="search"><span class="sr">Search jobs</span>
+        <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/><path d="m20 20-4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        <input id="q" type="search" placeholder="Title, company or skill" autocomplete="off">
+      </label>
+      <div class="seg" role="group" aria-label="Where">
+        <button type="button" data-where="all" aria-pressed="true">All</button>
+        <button type="button" data-where="lb" aria-pressed="false">In Lebanon</button>
+        <button type="button" data-where="remote" aria-pressed="false">Remote</button>
+      </div>
+      <label class="field-select"><span class="sr">Field</span>
+        <select id="field"><option value="">All fields</option></select>
+      </label>
+    </form>
+    <p class="count" id="count" aria-live="polite"></p>
+    <ol class="job-list" id="list"></ol>
+    <div class="more"><button class="btn line" id="more" type="button" hidden>Show more jobs</button></div>
+    <div class="empty card" id="empty" hidden>
+      <h3 id="empty-title">No jobs match that search</h3>
+      <p id="empty-text">Try another word, or clear the filters.</p>
+    </div>
+  </div>
+
+  <aside class="jobs-side">
+    <div class="card side-cta">
+      <div class="icon">🎯</div>
+      <h3>Tailor your CV to any of these</h3>
+      <p>Tap <b>Tailor my CV</b> on a job: HireBee opens in Telegram and rewrites your CV and cover letter for it. 3 free.</p>
+      <a class="btn yellow block" data-bot="" href="#">Open HireBee</a>
+    </div>
+    <div class="card side-cta">
+      <div class="icon">🔔</div>
+      <h3>Get matched automatically</h3>
+      <p>With Pro, HireBee scores every new job against your CV and sends you only the ones that fit.</p>
+      <a class="btn line block" href="index.html#pricing">See plans</a>
+    </div>
+  </aside>
+</div>
+
+<section style="padding-top:24px"><div class="wrap">
+  <p class="attribution" id="attribution">Each job links to its original posting and names where it came from. HireBee isn't the employer: always apply through the original posting.</p>
+</div></section>
+</main>
+
+<footer><div class="wrap">
+  <div>© <span data-year>2026</span> HireBee · operated by <span data-owner></span>, Lebanon · <a data-email href="#"></a></div>
+  <nav aria-label="Legal"><a href="jobs.html">Jobs</a><a href="pay.html">Payments</a><a href="terms.html">Terms</a><a href="privacy.html">Privacy</a><a href="refunds.html">Refunds</a><a href="contact.html">Contact</a></nav>
+</div></footer>
+<script src="config.js"></script>
+<script src="site.js"></script>
+<script src="jobs.js"></script>
+</body>
+</html>

@@ -82,6 +82,10 @@ Not happy? You get a full refund within 7 days of paying, as long as you've tail
 | **Whish** | Pay the exact amount with Whish, then send the receipt screenshot to the bot. | Once it's checked, usually within a few hours |
 | **Telegram Stars** | Pay inside Telegram: 700 ⭐ for Pro, 1,950 ⭐ for Ultra Max. | Straight away |
 
+## Browse jobs
+
+The [Jobs page](https://aymanaghi.github.io/hirebee/jobs.html) lists jobs open to people in Lebanon, updated after every scan: search, filter by In Lebanon, Remote or field, and tap **Tailor my CV** to open HireBee on that job. Every job links to its original posting and names its source.
+
 ## Where the jobs come from
 
 - **Remote jobs:** RemoteOK, Remotive, Himalayas, We Work Remotely and Jobicy, in every field, keeping only jobs open to people in Lebanon.
@@ -108,7 +112,8 @@ This repository is the HireBee **website**: plain HTML, CSS and JavaScript with 
 
 ```text
 hirebee/
-├── index.html          Home: how it works, features, pricing, FAQ
+├── index.html          Home: how it works, features, latest jobs, pricing, FAQ
+├── jobs.html           Jobs open to people in Lebanon: search and filters
 ├── pay.html            Payment page: USDT on TON, Whish, Telegram Stars
 ├── terms.html          Terms of service
 ├── privacy.html        Privacy policy
@@ -116,6 +121,8 @@ hirebee/
 ├── contact.html        Contact details
 ├── config.js           Settings: bot username, contact details, prices, wallet address
 ├── site.js             Fills every page from config.js
+├── jobs.js             Shows jobs.json on the Jobs page and the home page
+├── jobs.json           The job list, written by the HireBee bot after every scan
 ├── style.css           All styles, light theme
 ├── favicon.svg         Icons and the link preview card
 ├── favicon-32.png
@@ -155,7 +162,11 @@ WEBSITE_CHECKOUT_URL=https://aymanaghi.github.io/hirebee/pay.html
 
 The bot adds each user's order code to that link (`?code=…&plan=…`).
 
-**4. Moving to your own domain.** Each page's `<head>` points `og:image` to `https://aymanaghi.github.io/hirebee/og-share.png`. Change that line in every page, and add a `CNAME` file with the domain.
+**4. Jobs page.** The bot commits `jobs.json` here after each scan once `GITHUB_TOKEN` is set in its `.env`
+(a fine-grained token for this repository only, with Contents: Read and write). Until then the Jobs page says the
+first jobs are on their way, and the home page hides its Latest jobs section.
+
+**5. Moving to your own domain.** Each page's `<head>` points `og:image` to `https://aymanaghi.github.io/hirebee/og-share.png`. Change that line in every page, and add a `CNAME` file with the domain.
 
 The terms, privacy and refund pages are a plain-language starting point, not legal advice. Read them and change anything that doesn't match how you work.
 
